@@ -24,7 +24,7 @@
 
 #include "AprilTags/TagDetector.h"
 
-//#define DEBUG_APRIL
+// #define DEBUG_APRIL
 
 #ifdef DEBUG_APRIL
 #include <opencv/cv.h>
@@ -168,7 +168,7 @@ namespace AprilTags {
 #ifdef DEBUG_APRIL
   int height_ = fimSeg.getHeight();
   int width_  = fimSeg.getWidth();
-  cv::Mat image(height_, width_, CV_8UC3);
+  cv::Mat image_(height_, width_, CV_8UC3);
   {
     for (int y=0; y<height_; y++) {
       for (int x=0; x<width_; x++) {
@@ -180,7 +180,7 @@ namespace AprilTags {
         for (int k=0; k<3; k++) {
           v(k) = val;
         }
-        image.at<cv::Vec3b>(y, x) = v;
+        image_.at<cv::Vec3b>(y, x) = v;
       }
     }
   }
@@ -475,7 +475,7 @@ namespace AprilTags {
           if (v>threshold)
             cv::circle(image, cv::Point2f(irx, iry), 1, cv::Scalar(0,0,255,0), 2);
           else
-            cv::circle(image, cv::Point2f(irx, iry), 1, cv::Scalar(0,255,0,0), 2);
+            cv::circle(image, cv::Point2f(irx, iry), 1, cv::Scalar(255,255,255,0), 2);
         }
 #endif
       }

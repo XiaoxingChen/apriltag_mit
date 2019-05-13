@@ -90,9 +90,10 @@ int main(int argc, char* argv[]) {
     }
 
     imshow(window_name, color);
+    cv::waitKey(1);
 
     // exit if any key pressed
-    if (cv::waitKey(10) >= 0) break;
+    // if (cv::waitKey(0) >= 0) break;
   }
 
   return 0;
